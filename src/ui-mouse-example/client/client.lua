@@ -47,8 +47,8 @@ Citizen.CreateThread(function()
         if guiEnabled then
             SendNUIMessage({
                 type = "curserpos",
-                x = GetControlNormal(0, 239),
-                y = GetControlNormal(0, 240)
+                x = GetControlNormal(0, 239), -- CursorX from: https://github.com/crosire/scripthookvdotnet/blob/dev_v3/source/scripting/Controls.cs
+                y = GetControlNormal(0, 240) -- CursorY
             })
         end
         Citizen.Wait(10)
