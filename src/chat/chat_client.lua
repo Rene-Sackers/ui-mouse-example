@@ -2,7 +2,6 @@ local chatInputActive = false
 local chatInputActivating = false
 
 RegisterNetEvent('chatMessage')
-RegisterNetEvent('chatCommandEntered')
 
 function printChatLine(name, color, message)
     SendNUIMessage({

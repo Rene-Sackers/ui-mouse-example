@@ -12,7 +12,7 @@ AddEventHandler('chatMessageEntered', function(name, color, message)
         if message[0] == "/" then
             local commands = split(message)
             TriggerEvent('chatCommandEntered', commands, source)
-            TriggerClientEvent('chatCommandEntered', -1, commands, source)
+            TriggerClientEvent('chatCommandEntered', source, commands, source)
         else
             TriggerClientEvent('chatMessage', -1, name, color, message)
         end
