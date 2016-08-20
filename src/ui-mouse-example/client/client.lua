@@ -45,19 +45,6 @@ end)
 Citizen.CreateThread(function()
     while true do
         if guiEnabled then
-            SendNUIMessage({
-                type = "curserpos",
-                x = GetControlNormal(0, 239), -- CursorX from: https://github.com/crosire/scripthookvdotnet/blob/dev_v3/source/scripting/Controls.cs
-                y = GetControlNormal(0, 240) -- CursorY
-            })
-        end
-        Citizen.Wait(10)
-    end
-end)
-
-Citizen.CreateThread(function()
-    while true do
-        if guiEnabled then
             DisableControlAction(0, 1, guiEnabled) -- LookLeftRight
             DisableControlAction(0, 2, guiEnabled) -- LookUpDown
 

@@ -17,17 +17,19 @@ function Click(x, y) {
 
 $(function() {
     window.addEventListener('message', function(event) {
-        if (event.data.type == "curserpos") {
-            cursorX = event.data.x * documentWidth;
-            cursorY = event.data.y * documentHeight;
-            
-            UpdateCursorPos();
-        } else if (event.data.type == "enableui") {
+        if (event.data.type == "enableui") {
             cursor.style.display = event.data.enable ? "block" : "none";
             document.body.style.display = event.data.enable ? "block" : "none";
         } else if (event.data.type == "click") {
-            Click(cursorX - 1, cursorY - 1); 
+            // Avoid clicking the cursor itself, click 1px to the top/left;
+            Click(cursorX - 1, cursorY - 1);
         }
+    });
+
+    $(document).mousemove(function(event) {
+        cursorX = event.pageX;
+        cursorY = event.pageY;
+        UpdateCursorPos();
     });
 
     document.onkeyup = function (data) {
